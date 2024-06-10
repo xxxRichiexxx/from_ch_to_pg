@@ -1,0 +1,2 @@
+psql postgresql://{{ params.login }}:{{ params.password }}@{{ params.host }}:{{ params.port }}/rdw_order_reports \
+-c "\copy {{ dag_run.conf['dst_schema'] }}.{{ dag_run.conf['dst_table'] }} FROM '{{ params.base_dir }}/ch/{{ dag_run.conf['dst_table'] }}.csv' DELIMITER ',' CSV;"
